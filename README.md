@@ -1,6 +1,8 @@
 Ansible Role: X Desktop
 =======================
 
+[![Build Status](https://travis-ci.org/gantsign/ansible-role-xdesktop.svg?branch=master)](https://travis-ci.org/gantsign/ansible-role-xdesktop)
+
 Role to install and configure the Xfce4 desktop to my preference.
 
 Requirements
