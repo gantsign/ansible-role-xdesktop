@@ -11,6 +11,12 @@
     name: xfce4-mixer
     state: present
 
+- name: install xfce4-taskmanager
+  become: yes
+  apt:
+    name: xfce4-taskmanager
+    state: present
+
 # Remove screensaver (host OS has screensaver)
 - name: uninstall xscreensaver
   become: yes
