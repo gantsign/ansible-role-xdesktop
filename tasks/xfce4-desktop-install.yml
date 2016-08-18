@@ -1,0 +1,16 @@
+---
+- name: install xubuntu-core
+  apt:
+    name: xubuntu-core
+    state: present
+
+- name: install xfce4-mixer
+  apt:
+    name: xfce4-mixer
+    state: present
+
+# Remove screensaver (host OS has screensaver)
+- name: uninstall xscreensaver
+  apt:
+    name: xscreensaver
+    state: absent

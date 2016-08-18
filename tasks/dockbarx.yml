@@ -1,0 +1,4 @@
+---
+- include: dockbarx-configure.yml
+
+- include: dockbarx-install.yml

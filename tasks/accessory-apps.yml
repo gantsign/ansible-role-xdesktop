@@ -1,0 +1,12 @@
+---
+# Install text editor
+- name: install gedit
+  apt:
+    name: gedit
+    state: present
+
+# Install Seahorse SSH agent GUI
+- name: install seahorse
+  apt:
+    name: seahorse-daemon
+    state: present
