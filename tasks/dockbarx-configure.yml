@@ -1,0 +1,16 @@
+---
+- name: create xfce4 dockbarx config directory
+  file:
+    path: "/home/{{ item.username }}/.config/xfce4/panel"
+    state: directory
+    owner: "{{ item.username }}"
+    group: "{{ item.username }}"
+  with_items: "{{ users }}"
+
+- name: write xfce4 dockbarx config
+  template:
+    src: dockbarx-9.rc
+    dest: "/home/{{ item.username }}/.config/xfce4/panel/dockbarx-9.rc"
+    owner: "{{ item.username }}"
+    group: "{{ item.username }}"
+  with_items: "{{ users }}"
