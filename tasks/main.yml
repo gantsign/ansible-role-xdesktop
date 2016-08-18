@@ -1,6 +1,8 @@
 ---
 - include: xfce4-desktop.yml
 
+- include: fonts.yml
+
 - include: accessory-apps.yml
 
 - include: dockbarx.yml
