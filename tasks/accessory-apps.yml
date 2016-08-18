@@ -19,3 +19,10 @@
   apt:
     name: evince
     state: present
+
+# Install Gnome Calculator
+- name: install gnome-calculator
+  become: yes
+  apt:
+    name: gnome-calculator
+    state: present
