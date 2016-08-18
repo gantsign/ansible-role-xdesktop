@@ -1,5 +1,6 @@
 ---
 - name: create xfce4 config directory
+  become: yes
   file:
     path: "/home/{{ item.username }}/.config/xfce4/xfconf/xfce-perchannel-xml"
     state: directory
@@ -8,6 +9,7 @@
   with_items: "{{ users }}"
 
 - name: write xfce4 power manager config
+  become: yes
   template:
     src: xfce4-power-manager.xml
     dest: "/home/{{ item.username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
@@ -16,6 +18,7 @@
   with_items: "{{ users }}"
 
 - name: write xfce4 panel config
+  become: yes
   template:
     src: xfce4-panel.xml
     dest: "/home/{{ item.username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"

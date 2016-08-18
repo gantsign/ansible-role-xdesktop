@@ -1,5 +1,6 @@
 ---
 - name: create xfce4 dockbarx config directory
+  become: yes
   file:
     path: "/home/{{ item.username }}/.config/xfce4/panel"
     state: directory
@@ -8,6 +9,7 @@
   with_items: "{{ users }}"
 
 - name: write xfce4 dockbarx config
+  become: yes
   template:
     src: dockbarx-9.rc
     dest: "/home/{{ item.username }}/.config/xfce4/panel/dockbarx-9.rc"
