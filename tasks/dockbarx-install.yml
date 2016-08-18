@@ -1,14 +1,17 @@
 ---
 - name: add dockbarx ppa
+  become: yes
   apt_repository:
     repo: 'ppa:dockbar-main/ppa'
 
 - name: install dockbarx
+  become: yes
   apt:
     name: dockbarx
     state: present
 
 - name: install xfce4-dockbarx-plugin
+  become: yes
   apt:
     name: xfce4-dockbarx-plugin
     state: present
