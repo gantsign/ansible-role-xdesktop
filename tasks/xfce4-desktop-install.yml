@@ -17,6 +17,12 @@
     name: xfce4-taskmanager
     state: present
 
+- name: install thunar-archive-plugin
+  become: yes
+  apt:
+    name: thunar-archive-plugin
+    state: present
+
 # Remove screensaver (host OS has screensaver)
 - name: uninstall xscreensaver
   become: yes
