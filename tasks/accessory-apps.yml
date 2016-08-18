@@ -12,3 +12,10 @@
   apt:
     name: seahorse-daemon
     state: present
+
+# Install Evince PDF viewer
+- name: install evince
+  become: yes
+  apt:
+    name: evince
+    state: present
