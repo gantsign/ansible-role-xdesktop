@@ -8,6 +8,7 @@ import pytest
     ('evince'),
     ('gedit'),
     ('gnome-calculator'),
+    ('meld'),
     ('seahorse')
 ])
 def test_for_executables(Command, executable):
