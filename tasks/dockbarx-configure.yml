@@ -11,7 +11,7 @@
 - name: write xfce4 dockbarx config
   become: yes
   template:
-    src: dockbarx-9.rc
+    src: dockbarx-9.rc.j2
     dest: "/home/{{ item.username }}/.config/xfce4/panel/dockbarx-9.rc"
     owner: "{{ item.username }}"
     group: "{{ item.username }}"

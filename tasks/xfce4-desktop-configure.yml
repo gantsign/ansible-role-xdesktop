@@ -11,7 +11,7 @@
 - name: write xfce4 power manager config
   become: yes
   template:
-    src: xfce4-power-manager.xml
+    src: xfce4-power-manager.xml.j2
     dest: "/home/{{ item.username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
     owner: "{{ item.username }}"
     group: "{{ item.username }}"
@@ -20,7 +20,7 @@
 - name: write xfce4 panel config
   become: yes
   template:
-    src: xfce4-panel.xml
+    src: xfce4-panel.xml.j2
     dest: "/home/{{ item.username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
     owner: "{{ item.username }}"
     group: "{{ item.username }}"
