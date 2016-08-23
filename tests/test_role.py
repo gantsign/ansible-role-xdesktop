@@ -22,6 +22,22 @@ def test_for_libdockbarx(File):
     assert docx.group == 'root'
     assert oct(docx.mode) == '0644'
 
+@pytest.mark.parametrize('dir_path', [
+    ('.config'),
+    ('.config/xfce4'),
+    ('.config/xfce4/panel'),
+    ('.config/xfce4/xfconf'),
+    ('.config/xfce4/xfconf/xfce-perchannel-xml')
+])
+def test_for_config_dirs(File, dir_path):
+    dir = File('/home/test_usr/' + dir_path)
+
+    assert dir.exists
+    assert dir.is_directory
+    assert dir.user == 'test_usr'
+    assert dir.group == 'test_usr'
+    assert oct(dir.mode) == '0700'
+
 @pytest.mark.parametrize('config_path', [
     ('.config/xfce4/panel/dockbarx-9.rc'),
     ('.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml'),
@@ -34,4 +50,4 @@ def test_for_config(File, config_path):
     assert config_file.is_file
     assert config_file.user == 'test_usr'
     assert config_file.group == 'test_usr'
-    assert oct(config_file.mode) == '0644'
+    assert oct(config_file.mode) == '0600'
