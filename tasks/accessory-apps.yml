@@ -26,3 +26,10 @@
   apt:
     name: gnome-calculator
     state: present
+
+# Install Meld - Diff/Merge tool
+- name: install meld
+  become: yes
+  apt:
+    name: meld
+    state: present
