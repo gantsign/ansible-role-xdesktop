@@ -18,17 +18,35 @@ The following variables will change the behavior of this role (default values
 are shown below):
 
 ```yaml
-# The format for the desktop clock
+# The desktop environment to install (unity or xfce4)
+xdesktop_desktop: unity
+
+# The format for the desktop clock (applies to xfce4 only)
 xdesktop_clock_format:
+
+# Users to configure the desktop for
+users: []
 ```
 
 Example Playbooks
 -----------------
 
+Unity playbook:
+
 ```yaml
 - hosts: servers
   roles:
     - role: gantsign.xdesktop
+      xdesktop_desktop: unity
+```
+
+Xfce4 playbook:
+
+```yaml
+- hosts: servers
+  roles:
+    - role: gantsign.xdesktop
+      xdesktop_desktop: xfce4
       xdesktop_clock_format: '%b %d, %H:%M'
 ```
 

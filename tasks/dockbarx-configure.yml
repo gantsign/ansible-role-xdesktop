@@ -2,7 +2,7 @@
 - name: create xfce4 dockbarx config directory
   become: yes
   file:
-    path: "{{ xdesktop_custom_config_dir }}/xfce4/panel"
+    path: "{{ xdesktop_xfce4_custom_config_dir }}/xfce4/panel"
     state: directory
     owner: root
     group: root
@@ -12,7 +12,7 @@
   become: yes
   template:
     src: dockbarx-9.rc.j2
-    dest: "{{ xdesktop_custom_config_dir }}/xfce4/panel/dockbarx-9.rc"
+    dest: "{{ xdesktop_xfce4_custom_config_dir }}/xfce4/panel/dockbarx-9.rc"
     owner: root
     group: root
     mode: 'u=rw,go=r'
