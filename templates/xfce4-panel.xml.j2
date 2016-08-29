@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- {{ ansible_managed }} -->
 <channel name="xfce4-panel" version="1.0">
   <property name="panels" type="uint" value="1">
     <property name="panel-0" type="empty">
@@ -45,7 +45,9 @@
       <property name="expand" type="bool" value="false"/>
     </property>
     <property name="plugin-8" type="string" value="clock">
-      <property name="digital-format" type="string" value="{{ item.xdesktop_clock_format | default(xdesktop_default_clock_format) }}"/>
+      {% if xdesktop_clock_format is defined and xdesktop_clock_format not in ('', None, omit) %}
+      <property name="digital-format" type="string" value="{{ xdesktop_clock_format }}"/>
+      {% endif %}
     </property>
     <property name="plugin-5" type="string" value="mixer">
       <property name="sound-card" type="string" value=""/>

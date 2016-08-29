@@ -2,19 +2,17 @@
 - name: create xfce4 dockbarx config directory
   become: yes
   file:
-    path: "/home/{{ item.username }}/.config/xfce4/panel"
+    path: "{{ xdesktop_custom_config_dir }}/xfce4/panel"
     state: directory
-    owner: "{{ item.username }}"
-    group: "{{ item.username }}"
-    mode: 'u=rwx,go='
-  with_items: "{{ users }}"
+    owner: root
+    group: root
+    mode: 'u=rwx,go=rx'
 
 - name: write xfce4 dockbarx config
   become: yes
   template:
     src: dockbarx-9.rc.j2
-    dest: "/home/{{ item.username }}/.config/xfce4/panel/dockbarx-9.rc"
-    owner: "{{ item.username }}"
-    group: "{{ item.username }}"
-    mode: 'u=rw,go='
-  with_items: "{{ users }}"
+    dest: "{{ xdesktop_custom_config_dir }}/xfce4/panel/dockbarx-9.rc"
+    owner: root
+    group: root
+    mode: 'u=rw,go=r'
