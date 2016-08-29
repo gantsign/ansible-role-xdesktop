@@ -1,0 +1,34 @@
+---
+- name: write xorg screensaver config
+  become: yes
+  template:
+    src: screensaver.conf.j2
+    dest: '/usr/share/X11/xorg.conf.d/60-ansible-screensaver.conf'
+    owner: root
+    group: root
+    mode: 'u=rw,go=r'
+
+- name: write gnome screensaver config
+  become: yes
+  template:
+    src: screensaver.gschema.override.j2
+    dest: "{{ xdesktop_glib_schemas_directory }}/20_ansible_screensaver.gschema.override"
+    owner: root
+    group: root
+    mode: 'u=rw,go=r'
+  register: screensaver_config
+
+- name: write gnome lock screen config
+  become: yes
+  template:
+    src: lockscreen.gschema.override.j2
+    dest: "{{ xdesktop_glib_schemas_directory }}/20_ansible_lockscreen.gschema.override"
+    owner: root
+    group: root
+    mode: 'u=rw,go=r'
+  register: lockscreen_config
+
+- name: apply glib schemas changes
+  become: yes
+  command: "/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}"
+  when: screensaver_config.changed or lockscreen_config.changed

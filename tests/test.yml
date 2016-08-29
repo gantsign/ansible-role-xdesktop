@@ -13,3 +13,5 @@
 
   roles:
     - role: ansible-role-xdesktop
+    - role: ansible-role-xdesktop
+      xdesktop_desktop: xfce4

@@ -1,6 +1,9 @@
 ---
+# Directory where GLib schemas are located
+xdesktop_glib_schemas_directory: /usr/share/glib-2.0/schemas
+
 # The directory for the custom Xfce4 config
-xdesktop_custom_config_dir: /etc/xdg/ansible-xdesktop
+xdesktop_xfce4_custom_config_dir: /etc/xdg/ansible-xdesktop
 
 # The directory where you can customize the Xsession config
 xdesktop_xsession_d_dir: /etc/X11/Xsession.d

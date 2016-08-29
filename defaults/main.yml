@@ -1,3 +1,9 @@
 ---
-# The format for the desktop clock
+# The desktop environment to install (unity or xfce4)
+xdesktop_desktop: unity
+
+# The format for the desktop clock (applies to xfce4 only)
 xdesktop_clock_format:
+
+# Users to configure the desktop for
+users: []
