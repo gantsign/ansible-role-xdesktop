@@ -1,2 +1,6 @@
 ---
-# vars file for xdesktop
+# The directory for the custom Xfce4 config
+xdesktop_custom_config_dir: /etc/xdg/ansible-xdesktop
+
+# The directory where you can customize the Xsession config
+xdesktop_xsession_d_dir: /etc/X11/Xsession.d

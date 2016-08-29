@@ -18,24 +18,18 @@ The following variables will change the behavior of this role (default values
 are shown below):
 
 ```yaml
-# Default format for the desktop clock (will be overriden by user specific setting)
-xdesktop_default_clock_format: '%d %b, %H:%M'
-
-# Users to configure the desktop for
-users: []
+# The format for the desktop clock
+xdesktop_clock_format:
 ```
 
-Example Playbook
-----------------
+Example Playbooks
+-----------------
 
 ```yaml
 - hosts: servers
   roles:
     - role: gantsign.xdesktop
-      xdesktop_default_clock_format: '%b %d, %H:%M'
-      users:
-        - username: vagrant
-          xdesktop_clock_format: '%d %b, %H:%M'
+      xdesktop_clock_format: '%b %d, %H:%M'
 ```
 
 More Roles From GantSign

@@ -29,31 +29,40 @@ def test_for_libdockbarx(File):
     assert oct(docx.mode) == '0644'
 
 @pytest.mark.parametrize('dir_path', [
-    ('.config'),
-    ('.config/xfce4'),
-    ('.config/xfce4/panel'),
-    ('.config/xfce4/xfconf'),
-    ('.config/xfce4/xfconf/xfce-perchannel-xml')
+    ('/etc/xdg/ansible-xdesktop'),
+    ('/etc/xdg/ansible-xdesktop/xfce4'),
+    ('/etc/xdg/ansible-xdesktop/xfce4/panel'),
+    ('/etc/xdg/ansible-xdesktop/xfce4/xfconf'),
+    ('/etc/xdg/ansible-xdesktop/xfce4/xfconf/xfce-perchannel-xml')
 ])
 def test_for_config_dirs(File, dir_path):
-    dir = File('/home/test_usr/' + dir_path)
+    dir = File(dir_path)
 
     assert dir.exists
     assert dir.is_directory
-    assert dir.user == 'test_usr'
-    assert dir.group == 'test_usr'
-    assert oct(dir.mode) == '0700'
+    assert dir.user == 'root'
+    assert dir.group == 'root'
+    assert oct(dir.mode) == '0755'
 
 @pytest.mark.parametrize('config_path', [
-    ('.config/xfce4/panel/dockbarx-9.rc'),
-    ('.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml'),
-    ('.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml')
+    ('xfce4/panel/dockbarx-9.rc'),
+    ('xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml'),
+    ('xfce4/panel/default.xml')
 ])
 def test_for_config(File, config_path):
-    config_file = File('/home/test_usr/' + config_path)
+    config_file = File('/etc/xdg/ansible-xdesktop/' + config_path)
 
     assert config_file.exists
     assert config_file.is_file
-    assert config_file.user == 'test_usr'
-    assert config_file.group == 'test_usr'
-    assert oct(config_file.mode) == '0600'
+    assert config_file.user == 'root'
+    assert config_file.group == 'root'
+    assert oct(config_file.mode) == '0644'
+
+def test_for_x11config(File):
+    config_file = File('/etc/X11/Xsession.d/70-ansible-xdesktop')
+
+    assert config_file.exists
+    assert config_file.is_file
+    assert config_file.user == 'root'
+    assert config_file.group == 'root'
+    assert oct(config_file.mode) == '0644'

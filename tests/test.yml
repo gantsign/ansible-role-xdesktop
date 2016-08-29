@@ -13,5 +13,3 @@
 
   roles:
     - role: ansible-role-xdesktop
-      users:
-        - username: test_usr
