@@ -6,15 +6,15 @@ testinfra_hosts = AnsibleRunner('.molecule/ansible_inventory').get_hosts('all')
 
 
 @pytest.mark.parametrize('executable', [
-    ('xfce4-about'),
-    ('xfce4-mixer'),
-    ('xfce4-taskmanager'),
-    ('dockx'),
-    ('evince'),
-    ('gedit'),
-    ('gnome-calculator'),
-    ('meld'),
-    ('seahorse')
+    'xfce4-about',
+    'xfce4-mixer',
+    'xfce4-taskmanager',
+    'dockx',
+    'evince',
+    'gedit',
+    'gnome-calculator',
+    'meld',
+    'seahorse'
 ])
 def test_for_executables(Command, executable):
     assert Command('which ' + executable).rc == 0
@@ -29,11 +29,11 @@ def test_for_libdockbarx(File):
     assert oct(docx.mode) == '0644'
 
 @pytest.mark.parametrize('dir_path', [
-    ('/etc/xdg/ansible-xdesktop'),
-    ('/etc/xdg/ansible-xdesktop/xfce4'),
-    ('/etc/xdg/ansible-xdesktop/xfce4/panel'),
-    ('/etc/xdg/ansible-xdesktop/xfce4/xfconf'),
-    ('/etc/xdg/ansible-xdesktop/xfce4/xfconf/xfce-perchannel-xml')
+    '/etc/xdg/ansible-xdesktop',
+    '/etc/xdg/ansible-xdesktop/xfce4',
+    '/etc/xdg/ansible-xdesktop/xfce4/panel',
+    '/etc/xdg/ansible-xdesktop/xfce4/xfconf',
+    '/etc/xdg/ansible-xdesktop/xfce4/xfconf/xfce-perchannel-xml'
 ])
 def test_for_config_dirs(File, dir_path):
     dir = File(dir_path)
@@ -45,9 +45,9 @@ def test_for_config_dirs(File, dir_path):
     assert oct(dir.mode) == '0755'
 
 @pytest.mark.parametrize('config_path', [
-    ('xfce4/panel/dockbarx-9.rc'),
-    ('xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml'),
-    ('xfce4/panel/default.xml')
+    'xfce4/panel/dockbarx-9.rc',
+    'xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml',
+    'xfce4/panel/default.xml'
 ])
 def test_for_config(File, config_path):
     config_file = File('/etc/xdg/ansible-xdesktop/' + config_path)
