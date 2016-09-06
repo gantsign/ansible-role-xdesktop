@@ -18,6 +18,7 @@ def test_for_config_dirs(File, dir_path):
     assert dir.group == 'root'
     assert oct(dir.mode) == '0755'
 
+
 @pytest.mark.parametrize('config_path', [
     ('/usr/share/X11/xorg.conf.d/60-ansible-screensaver.conf'),
     ('/usr/share/glib-2.0/schemas/20_ansible_screensaver.gschema.override'),
