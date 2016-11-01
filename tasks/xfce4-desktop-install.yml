@@ -5,12 +5,6 @@
     name: xubuntu-core
     state: present
 
-- name: install xfce4-mixer
-  become: yes
-  apt:
-    name: xfce4-mixer
-    state: present
-
 - name: install xfce4-taskmanager
   become: yes
   apt:
