@@ -11,6 +11,9 @@ Requirements
 
 * Ubuntu
 
+    * Wily (15.10)
+    * Xenial (16.04)
+
 Role Variables
 --------------
 
