@@ -1,6 +1,6 @@
 ---
 - include: xfce4-desktop-configure.yml
 
-- include: xfce4-desktop-install.yml
+- include: dockbarx-configure.yml
 
-- include: dockbarx.yml
+- include: xfce4-desktop-install.yml

@@ -1,4 +1,9 @@
 ---
+- name: add dockbarx ppa
+  become: yes
+  apt_repository:
+    repo: 'ppa:dockbar-main/ppa'
+
 - name: install xubuntu
   become: yes
   apt:
@@ -8,6 +13,8 @@
     - xubuntu-core
     - xfce4-taskmanager
     - thunar-archive-plugin
+    - dockbarx
+    - xfce4-dockbarx-plugin
 
 # Remove screensaver (host OS has screensaver)
 - name: uninstall xscreensaver
