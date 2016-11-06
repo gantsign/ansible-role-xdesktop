@@ -1,35 +1,17 @@
 ---
-# Install text editor
-- name: install gedit
+- name: install accessory apps
   become: yes
   apt:
-    name: gedit
+    name: '{{ item }}'
     state: present
-
-# Install Seahorse SSH agent GUI
-- name: install seahorse
-  become: yes
-  apt:
-    name: seahorse-daemon
-    state: present
-
-# Install Evince PDF viewer
-- name: install evince
-  become: yes
-  apt:
-    name: evince
-    state: present
-
-# Install Gnome Calculator
-- name: install gnome-calculator
-  become: yes
-  apt:
-    name: gnome-calculator
-    state: present
-
-# Install Meld - Diff/Merge tool
-- name: install meld
-  become: yes
-  apt:
-    name: meld
-    state: present
+  with_items:
+    # Text editor
+    - gedit
+    # Seahorse SSH agent GUI
+    - seahorse-daemon
+    # Evince PDF viewer
+    - evince
+    # Gnome Calculator
+    - gnome-calculator
+    # Meld - Diff/Merge tool
+    - meld

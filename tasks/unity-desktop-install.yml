@@ -2,13 +2,10 @@
 - name: install ubuntu-desktop
   become: yes
   apt:
-    name: ubuntu-desktop
+    name: '{{ item }}'
     state: present
     install_recommends: no
-
-# Without this the application menu doesn't work
-- name: install unity-lens-applications
-  become: yes
-  apt:
-    name: unity-lens-applications
-    state: present
+  with_items:
+    - ubuntu-desktop
+    # Without this the application menu doesn't work
+    - unity-lens-applications

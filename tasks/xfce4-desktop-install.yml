@@ -1,21 +1,13 @@
 ---
-- name: install xubuntu-core
+- name: install xubuntu
   become: yes
   apt:
-    name: xubuntu-core
+    name: '{{ item }}'
     state: present
-
-- name: install xfce4-taskmanager
-  become: yes
-  apt:
-    name: xfce4-taskmanager
-    state: present
-
-- name: install thunar-archive-plugin
-  become: yes
-  apt:
-    name: thunar-archive-plugin
-    state: present
+  with_items:
+    - xubuntu-core
+    - xfce4-taskmanager
+    - thunar-archive-plugin
 
 # Remove screensaver (host OS has screensaver)
 - name: uninstall xscreensaver
