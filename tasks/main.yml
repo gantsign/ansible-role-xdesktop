@@ -10,6 +10,4 @@
 - include: xfce4-desktop.yml
   when: xdesktop_desktop == 'xfce4'
 
-- include: fonts.yml
-
-- include: accessory-apps.yml
+- include: accessories.yml
