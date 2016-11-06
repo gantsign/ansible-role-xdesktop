@@ -1,5 +1,5 @@
 ---
-- name: install accessory apps
+- name: install accessory apps and fonts
   become: yes
   apt:
     name: '{{ item }}'
@@ -15,3 +15,9 @@
     - gnome-calculator
     # Meld - Diff/Merge tool
     - meld
+    # Liberation fonts (Fonts with the same metrics as Times, Arial and Courier)
+    - fonts-liberation
+    # OpenSymbol fonts
+    - fonts-opensymbol
+    # Scientific and Technical Information eXchange fonts
+    - fonts-stix
