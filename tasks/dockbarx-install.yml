@@ -7,11 +7,8 @@
 - name: install dockbarx
   become: yes
   apt:
-    name: dockbarx
+    name: '{{ item }}'
     state: present
-
-- name: install xfce4-dockbarx-plugin
-  become: yes
-  apt:
-    name: xfce4-dockbarx-plugin
-    state: present
+  with_items:
+    - dockbarx
+    - xfce4-dockbarx-plugin

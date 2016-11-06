@@ -1,21 +1,13 @@
 ---
-# Install Liberation fonts (Fonts with the same metrics as Times, Arial and Courier)
-- name: fonts-liberation
+- name: install fonts
   become: yes
   apt:
-    name: fonts-liberation
+    name: '{{ item }}'
     state: present
-
-# Install OpenSymbol fonts
-- name: fonts-opensymbol
-  become: yes
-  apt:
-    name: fonts-opensymbol
-    state: present
-
-# Install Scientific and Technical Information eXchange fonts
-- name: fonts-stix
-  become: yes
-  apt:
-    name: fonts-stix
-    state: present
+  with_items:
+    # Liberation fonts (Fonts with the same metrics as Times, Arial and Courier)
+    - fonts-liberation
+    # OpenSymbol fonts
+    - fonts-opensymbol
+    # Scientific and Technical Information eXchange fonts
+    - fonts-stix
