@@ -15,6 +15,8 @@
     - gnome-calculator
     # Meld - Diff/Merge tool
     - meld
+    # Git-GUI graphical Git client
+    - git-gui
     # Liberation fonts (Fonts with the same metrics as Times, Arial and Courier)
     - fonts-liberation
     # OpenSymbol fonts
