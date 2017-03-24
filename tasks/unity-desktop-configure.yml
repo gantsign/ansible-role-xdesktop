@@ -16,7 +16,8 @@
     owner: root
     group: root
     mode: 'u=rw,go=r'
-  register: screensaver_config
+  notify:
+    - compile glib schemas
 
 - name: write gnome lock screen config
   become: yes
@@ -26,9 +27,5 @@
     owner: root
     group: root
     mode: 'u=rw,go=r'
-  register: lockscreen_config
-
-- name: apply glib schemas changes
-  become: yes
-  command: "/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}"
-  when: screensaver_config.changed or lockscreen_config.changed
+  notify:
+    - compile glib schemas
