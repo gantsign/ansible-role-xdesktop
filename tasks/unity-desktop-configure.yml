@@ -17,7 +17,7 @@
     group: root
     mode: 'u=rw,go=r'
   notify:
-    - compile glib schemas
+    - compile glib schemas xdesktop
 
 - name: write gnome lock screen config
   become: yes
@@ -28,4 +28,4 @@
     group: root
     mode: 'u=rw,go=r'
   notify:
-    - compile glib schemas
+    - compile glib schemas xdesktop
