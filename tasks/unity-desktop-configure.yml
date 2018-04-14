@@ -12,7 +12,7 @@
   become: yes
   template:
     src: screensaver.gschema.override.j2
-    dest: "{{ xdesktop_glib_schemas_directory }}/20_ansible_screensaver.gschema.override"
+    dest: '{{ xdesktop_glib_schemas_directory }}/20_ansible_screensaver.gschema.override'
     owner: root
     group: root
     mode: 'u=rw,go=r'
@@ -22,7 +22,7 @@
   become: yes
   template:
     src: lockscreen.gschema.override.j2
-    dest: "{{ xdesktop_glib_schemas_directory }}/20_ansible_lockscreen.gschema.override"
+    dest: '{{ xdesktop_glib_schemas_directory }}/20_ansible_lockscreen.gschema.override'
     owner: root
     group: root
     mode: 'u=rw,go=r'
@@ -35,5 +35,5 @@
     # doesn't make sense to use a handler, which are global to the playbook.
     - skip_ansible_lint
   become: yes
-  command: "/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}"
+  command: '/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}'
   when: screensaver_config.changed or lockscreen_config.changed
