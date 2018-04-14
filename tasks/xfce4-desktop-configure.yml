@@ -2,7 +2,7 @@
 - name: create custom config directory
   become: yes
   file:
-    path: "{{ xdesktop_xfce4_custom_config_dir }}"
+    path: '{{ xdesktop_xfce4_custom_config_dir }}'
     state: directory
     owner: root
     group: root
@@ -11,7 +11,7 @@
 - name: create Xsession.d directory
   become: yes
   file:
-    path: "{{ xdesktop_xsession_d_dir }}"
+    path: '{{ xdesktop_xsession_d_dir }}'
     state: directory
     owner: root
     group: root
@@ -29,7 +29,7 @@
 - name: create xfce4 perchannel config directory
   become: yes
   file:
-    path: "{{ xdesktop_xfce4_custom_config_dir }}/xfce4/xfconf/xfce-perchannel-xml"
+    path: '{{ xdesktop_xfce4_custom_config_dir }}/xfce4/xfconf/xfce-perchannel-xml'
     state: directory
     owner: root
     group: root
@@ -39,7 +39,7 @@
   become: yes
   template:
     src: xfce4-power-manager.xml.j2
-    dest: "{{ xdesktop_xfce4_custom_config_dir }}/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
+    dest: '{{ xdesktop_xfce4_custom_config_dir }}/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml'
     owner: root
     group: root
     mode: 'u=rw,go=r'
@@ -47,7 +47,7 @@
 - name: create xfce4 panel config directory
   become: yes
   file:
-    path: "{{ xdesktop_xfce4_custom_config_dir }}/xfce4/panel"
+    path: '{{ xdesktop_xfce4_custom_config_dir }}/xfce4/panel'
     state: directory
     owner: root
     group: root
@@ -57,7 +57,7 @@
   become: yes
   template:
     src: xfce4-panel.xml.j2
-    dest: "{{ xdesktop_xfce4_custom_config_dir }}/xfce4/panel/default.xml"
+    dest: '{{ xdesktop_xfce4_custom_config_dir }}/xfce4/panel/default.xml'
     owner: root
     group: root
     mode: 'u=rw,go=r'
