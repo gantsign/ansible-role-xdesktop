@@ -1,5 +1,5 @@
 ---
-# The desktop environment to install (unity or xfce4)
+# The desktop environment to install (gnome / unity / xfce4)
 xdesktop_desktop: unity
 
 # The format for the desktop clock (applies to xfce4 only)

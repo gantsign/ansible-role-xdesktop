@@ -8,10 +8,16 @@ matrix:
   include:
     - env:
         - ANSIBLE_VERSION=2.4.6
+        - MOLECULE_SCENARIO=gnome
+    - env:
+        - ANSIBLE_VERSION=2.4.6
         - MOLECULE_SCENARIO=unity
     - env:
         - ANSIBLE_VERSION=2.4.6
         - MOLECULE_SCENARIO=xfce4
+    - env:
+        - ANSIBLE_VERSION=2.6.2
+        - MOLECULE_SCENARIO=gnome
     - env:
         - ANSIBLE_VERSION=2.6.2
         - MOLECULE_SCENARIO=unity
