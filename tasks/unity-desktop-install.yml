@@ -11,3 +11,5 @@
     - unity-lens-applications
     # Archive manager
     - file-roller
+    # TaskManager equivalent
+    - gnome-system-monitor
