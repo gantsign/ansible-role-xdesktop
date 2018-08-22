@@ -9,3 +9,5 @@
     - ubuntu-desktop
     # Without this the application menu doesn't work
     - unity-lens-applications
+    # Archive manager
+    - file-roller
