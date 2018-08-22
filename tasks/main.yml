@@ -4,10 +4,6 @@
     that:
       - "xdesktop_desktop in ('unity', 'xfce4')"
 
-- include: unity-desktop.yml
-  when: xdesktop_desktop == 'unity'
+- include_tasks: '{{ xdesktop_desktop }}-desktop.yml'
 
-- include: xfce4-desktop.yml
-  when: xdesktop_desktop == 'xfce4'
-
-- include: accessories.yml
+- import_tasks: accessories.yml
