@@ -1,0 +1,13 @@
+---
+- name: install ubuntu-desktop
+  become: yes
+  apt:
+    name: '{{ item }}'
+    state: present
+    install_recommends: no
+  with_items:
+    - ubuntu-desktop
+    # Archive manager
+    - file-roller
+    # TaskManager equivalent
+    - gnome-system-monitor

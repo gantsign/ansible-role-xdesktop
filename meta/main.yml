@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: John Freeman
-  description: Role for installing and configuring Unity/Xfce4 desktops to my preference.
+  description: Role for installing and configuring Gnome/Unity/Xfce4 desktops to my preference.
   company: GantSign Ltd.
   license: MIT
   min_ansible_version: 2.4
@@ -9,6 +9,7 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - xenial
+        - bionic
   galaxy_tags:
     - xfce4
     - xubuntu
