@@ -11,8 +11,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     '/usr/share/X11/xorg.conf.d',
     '/usr/share/glib-2.0/schemas'
 ])
-def test_for_config_dirs(File, dir_path):
-    dir = File(dir_path)
+def test_for_config_dirs(host, dir_path):
+    dir = host.file(dir_path)
 
     assert dir.exists
     assert dir.is_directory
@@ -26,8 +26,8 @@ def test_for_config_dirs(File, dir_path):
     '/usr/share/glib-2.0/schemas/20_ansible_screensaver.gschema.override',
     '/usr/share/glib-2.0/schemas/20_ansible_lockscreen.gschema.override'
 ])
-def test_for_config(File, config_path):
-    config_file = File(config_path)
+def test_for_config(host, config_path):
+    config_file = host.file(config_path)
 
     assert config_file.exists
     assert config_file.is_file
