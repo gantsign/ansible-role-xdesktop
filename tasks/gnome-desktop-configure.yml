@@ -28,6 +28,21 @@
     mode: 'u=rw,go=r'
   register: lockscreen_config
 
+- name: assert dock position valid
+  assert:
+    that:
+      - "xdesktop_dock_position in ('LEFT', 'RIGHT', 'BOTTOM')"
+
+- name: write gnome dock config
+  become: yes
+  template:
+    src: dock.gschema.override.j2
+    dest: '{{ xdesktop_glib_schemas_directory }}/20_ansible_dock.gschema.override'
+    owner: root
+    group: root
+    mode: 'u=rw,go=r'
+  register: dock_config
+
 - name: apply glib schemas changes
   tags:
     # Suppress warning: [ANSIBLE0016] Tasks that run when changed should likely be handlers
@@ -36,4 +51,4 @@
     - skip_ansible_lint
   become: yes
   command: '/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}'
-  when: screensaver_config.changed or lockscreen_config.changed
+  when: screensaver_config.changed or lockscreen_config.changed or dock_config.changed
