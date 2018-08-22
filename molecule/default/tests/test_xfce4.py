@@ -17,12 +17,12 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     'meld',
     'seahorse'
 ])
-def test_for_executables(Command, executable):
-    assert Command('which ' + executable).rc == 0
+def test_for_executables(host, executable):
+    assert host.run('which ' + executable).rc == 0
 
 
-def test_for_libdockbarx(File):
-    docx = File('/usr/lib/xfce4/panel/plugins/libdockbarx.so')
+def test_for_libdockbarx(host):
+    docx = host.file('/usr/lib/xfce4/panel/plugins/libdockbarx.so')
 
     assert docx.exists
     assert docx.is_file
@@ -38,8 +38,8 @@ def test_for_libdockbarx(File):
     '/etc/xdg/ansible-xdesktop/xfce4/xfconf',
     '/etc/xdg/ansible-xdesktop/xfce4/xfconf/xfce-perchannel-xml'
 ])
-def test_for_config_dirs(File, dir_path):
-    dir = File(dir_path)
+def test_for_config_dirs(host, dir_path):
+    dir = host.file(dir_path)
 
     assert dir.exists
     assert dir.is_directory
@@ -53,8 +53,8 @@ def test_for_config_dirs(File, dir_path):
     'xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml',
     'xfce4/panel/default.xml'
 ])
-def test_for_config(File, config_path):
-    config_file = File('/etc/xdg/ansible-xdesktop/' + config_path)
+def test_for_config(host, config_path):
+    config_file = host.file('/etc/xdg/ansible-xdesktop/' + config_path)
 
     assert config_file.exists
     assert config_file.is_file
@@ -63,8 +63,8 @@ def test_for_config(File, config_path):
     assert oct(config_file.mode) == '0644'
 
 
-def test_for_x11config(File):
-    config_file = File('/etc/X11/Xsession.d/70-ansible-xdesktop')
+def test_for_x11config(host):
+    config_file = host.file('/etc/X11/Xsession.d/70-ansible-xdesktop')
 
     assert config_file.exists
     assert config_file.is_file
