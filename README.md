@@ -9,7 +9,7 @@ Role to install and configure the Xfce4 desktop to my preference.
 Requirements
 ------------
 
-* Ansible >= 2.3
+* Ansible >= 2.4
 
 * Linux Distribution
 
