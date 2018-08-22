@@ -9,9 +9,13 @@ Role to install and configure the Xfce4 desktop to my preference.
 Requirements
 ------------
 
-* Ubuntu
+* Ansible >= 2.3
 
-    * Xenial (16.04)
+* Linux Distribution
+
+    * Ubuntu
+
+        * Xenial (16.04)
 
 Role Variables
 --------------
