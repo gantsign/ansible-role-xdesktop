@@ -9,7 +9,7 @@ Role to install and configure Gnome/Unity/Xfce4 desktops to my preference.
 Requirements
 ------------
 
-* Ansible >= 2.4
+* Ansible >= 2.5
 
 * Linux Distribution
 
