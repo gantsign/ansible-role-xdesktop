@@ -2,14 +2,13 @@
 - name: install ubuntu-desktop
   become: yes
   apt:
-    name: '{{ item }}'
+    name:
+      - ubuntu-desktop
+      # Without this the application menu doesn't work
+      - unity-lens-applications
+      # Archive manager
+      - file-roller
+      # TaskManager equivalent
+      - gnome-system-monitor
     state: present
     install_recommends: no
-  with_items:
-    - ubuntu-desktop
-    # Without this the application menu doesn't work
-    - unity-lens-applications
-    # Archive manager
-    - file-roller
-    # TaskManager equivalent
-    - gnome-system-monitor
