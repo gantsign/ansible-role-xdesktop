@@ -2,24 +2,23 @@
 - name: install accessory apps and fonts
   become: yes
   apt:
-    name: '{{ item }}'
+    name:
+      # Text editor
+      - gedit
+      # Seahorse SSH agent GUI
+      - seahorse-daemon
+      # Evince PDF viewer
+      - evince
+      # Gnome Calculator
+      - gnome-calculator
+      # Meld - Diff/Merge tool
+      - meld
+      # Git-GUI graphical Git client
+      - git-gui
+      # Liberation fonts (Fonts with the same metrics as Times, Arial and Courier)
+      - fonts-liberation
+      # OpenSymbol fonts
+      - fonts-opensymbol
+      # Scientific and Technical Information eXchange fonts
+      - fonts-stix
     state: present
-  with_items:
-    # Text editor
-    - gedit
-    # Seahorse SSH agent GUI
-    - seahorse-daemon
-    # Evince PDF viewer
-    - evince
-    # Gnome Calculator
-    - gnome-calculator
-    # Meld - Diff/Merge tool
-    - meld
-    # Git-GUI graphical Git client
-    - git-gui
-    # Liberation fonts (Fonts with the same metrics as Times, Arial and Courier)
-    - fonts-liberation
-    # OpenSymbol fonts
-    - fonts-opensymbol
-    # Scientific and Technical Information eXchange fonts
-    - fonts-stix
