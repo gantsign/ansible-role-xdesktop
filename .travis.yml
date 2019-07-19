@@ -20,13 +20,13 @@ matrix:
         - MOLECULEW_ANSIBLE=2.5.10
         - MOLECULE_SCENARIO=xfce4
     - env:
-        - MOLECULEW_ANSIBLE=2.7.0
+        - MOLECULEW_ANSIBLE=2.8.2
         - MOLECULE_SCENARIO=gnome
     - env:
-        - MOLECULEW_ANSIBLE=2.7.0
+        - MOLECULEW_ANSIBLE=2.8.2
         - MOLECULE_SCENARIO=unity
     - env:
-        - MOLECULEW_ANSIBLE=2.7.0
+        - MOLECULEW_ANSIBLE=2.8.2
         - MOLECULE_SCENARIO=xfce4
 
 # Require the standard build environment
