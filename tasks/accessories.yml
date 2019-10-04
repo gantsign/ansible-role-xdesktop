@@ -15,6 +15,8 @@
       - meld
       # Git-GUI graphical Git client
       - git-gui
+      # Monospaced font with programming ligatures
+      - fonts-firacode
       # Liberation fonts (Fonts with the same metrics as Times, Arial and Courier)
       - fonts-liberation
       # OpenSymbol fonts
