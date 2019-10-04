@@ -1,6 +1,0 @@
----
-- import_tasks: xfce4-desktop-configure.yml
-
-- import_tasks: dockbarx-configure.yml
-
-- import_tasks: xfce4-desktop-install.yml
