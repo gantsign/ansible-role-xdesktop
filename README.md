@@ -4,7 +4,7 @@ Ansible Role: X Desktop
 [![Build Status](https://travis-ci.org/gantsign/ansible-role-xdesktop.svg?branch=master)](https://travis-ci.org/gantsign/ansible-role-xdesktop)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gantsign/ansible-role-xdesktop/master/LICENSE)
 
-Role to install and configure Gnome/Unity/Xfce4 desktops to my preference.
+Role to install and configure the Gnome desktop to my preference.
 
 Requirements
 ------------
@@ -15,23 +15,7 @@ Requirements
 
     * Ubuntu
 
-        * Xenial (16.04)
         * Bionic (18.04)
-
-Supported Desktops by Ubuntu Version
-------------------------------------
-
-* [Gnome](https://www.gnome.org)
-
-    * Bionic (18.04)
-
-* [Unity](https://en.wikipedia.org/wiki/Unity_(user_interface))
-
-    * Xenial (16.04)
-
-* [Xfce4](https://xfce.org)
-
-    * Xenial (16.04)
 
 Role Variables
 --------------
@@ -40,48 +24,17 @@ The following variables will change the behavior of this role (default values
 are shown below):
 
 ```yaml
-# The desktop environment to install (gnome / unity / xfce4)
-xdesktop_desktop: unity
-
-# The position of the dockbar (applies to gnome only)
+# The position of the dockbar
 xdesktop_dock_position: LEFT
-
-# The format for the desktop clock (applies to xfce4 only)
-xdesktop_clock_format:
-
-# Users to configure the desktop for
-users: []
 ```
 
-Example Playbooks
------------------
-
-Gnome playbook:
+Example Playbook
+----------------
 
 ```yaml
 - hosts: servers
   roles:
     - role: gantsign.xdesktop
-      xdesktop_desktop: gnome
-```
-
-Unity playbook:
-
-```yaml
-- hosts: servers
-  roles:
-    - role: gantsign.xdesktop
-      xdesktop_desktop: unity
-```
-
-Xfce4 playbook:
-
-```yaml
-- hosts: servers
-  roles:
-    - role: gantsign.xdesktop
-      xdesktop_desktop: xfce4
-      xdesktop_clock_format: '%b %d, %H:%M'
 ```
 
 More Roles From GantSign
