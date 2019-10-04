@@ -1,9 +1,4 @@
 ---
-- name: assert desktop environment in supported list
-  assert:
-    that:
-      - "xdesktop_desktop in ('gnome', 'unity', 'xfce4')"
-
-- include_tasks: '{{ xdesktop_desktop }}-desktop.yml'
+- import_tasks: gnome-desktop.yml
 
 - import_tasks: accessories.yml

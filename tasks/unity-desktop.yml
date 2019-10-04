@@ -1,4 +1,0 @@
----
-- import_tasks: unity-desktop-install.yml
-
-- import_tasks: gnome-desktop-configure.yml
