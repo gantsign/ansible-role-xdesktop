@@ -1,7 +1,7 @@
 Ansible Role: X Desktop
 =======================
 
-[![Build Status](https://travis-ci.org/gantsign/ansible-role-xdesktop.svg?branch=master)](https://travis-ci.org/gantsign/ansible-role-xdesktop)
+[![Build Status](https://travis-ci.com/gantsign/ansible-role-xdesktop.svg?branch=master)](https://travis-ci.com/gantsign/ansible-role-xdesktop)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gantsign/ansible-role-xdesktop/master/LICENSE)
 
 Role to install and configure the Gnome desktop to my preference.
