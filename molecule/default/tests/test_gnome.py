@@ -1,10 +1,4 @@
 import pytest
-import os
-
-import testinfra.utils.ansible_runner
-
-testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
-    os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
 @pytest.mark.parametrize('dir_path', [
@@ -18,7 +12,7 @@ def test_for_config_dirs(host, dir_path):
     assert dir.is_directory
     assert dir.user == 'root'
     assert dir.group == 'root'
-    assert oct(dir.mode) == '0755'
+    assert oct(dir.mode) == '0o755'
 
 
 @pytest.mark.parametrize('config_path', [
@@ -34,4 +28,4 @@ def test_for_config(host, config_path):
     assert config_file.is_file
     assert config_file.user == 'root'
     assert config_file.group == 'root'
-    assert oct(config_file.mode) == '0644'
+    assert oct(config_file.mode) == '0o644'
