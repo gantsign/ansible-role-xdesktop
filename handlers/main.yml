@@ -1,2 +1,4 @@
 ---
-# handlers file for xdesktop
+- name: update font-cache
+  become: yes
+  command: fc-cache -fv

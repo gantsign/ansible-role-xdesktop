@@ -1,3 +1,48 @@
 ---
 # Directory where GLib schemas are located
 xdesktop_glib_schemas_directory: /usr/share/glib-2.0/schemas
+
+# Directory where local fonts are installed
+xdesktop_font_install_directory: /usr/local/share/fonts
+
+# Mirror to download the Nerd Font from
+xdesktop_nerd_font_mirror: 'https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ xdesktop_nerd_font_version }}'
+
+# Name of the default monospace font name
+xdesktop_monospace_font_name: 'JetBrainsMono Nerd Font Mono 12'
+
+# File name of the Nerd Font redistributable package
+xdesktop_nerd_font_redis_filename: 'JetBrainsMono.zip'
+
+# File name of the Nerd Font local package
+xdesktop_nerd_font_local_filename: 'JetBrainsMono_{{ xdesktop_nerd_font_version }}.zip'
+
+# The files to install from the Nerd Font package
+xdesktop_nerd_font_install_files:
+  - 'JetBrains Mono Extra Bold Nerd Font Complete.ttf'
+  - 'JetBrains Mono Regular Nerd Font Complete.ttf'
+  - 'JetBrains Mono Italic Nerd Font Complete.ttf'
+  - 'JetBrains Mono Medium Medium Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono ExtraBold ExtBd Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Medium Italic Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Medium Italic Nerd Font Complete.ttf'
+  - 'JetBrains Mono ExtraBold ExtBd Nerd Font Complete.ttf'
+  - 'JetBrains Mono Medium Med Ita Nerd Font Complete.ttf'
+  - 'JetBrains Mono ExtBd Ita Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono ExtBd Ita Nerd Font Complete.ttf'
+  - 'JetBrains Mono Medium Med Ita Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Bold Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Medium Nerd Font Complete.ttf'
+  - 'JetBrains Mono ExtraBold ExBd I Nerd Font Complete.ttf'
+  - 'JetBrains Mono Bold Italic Nerd Font Complete.ttf'
+  - 'JetBrains Mono Medium Medium Nerd Font Complete.ttf'
+  - 'JetBrains Mono Italic Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Bold Italic Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Medium Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Extra Bold Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono ExtraBold ExBd I Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Regular Nerd Font Complete Mono.ttf'
+  - 'JetBrains Mono Bold Nerd Font Complete.ttf'
+
+# URL of the Nerd Font redistributable package
+xdesktop_nerd_font_redis_url: '{{ xdesktop_nerd_font_mirror }}/{{ xdesktop_nerd_font_redis_filename }}'

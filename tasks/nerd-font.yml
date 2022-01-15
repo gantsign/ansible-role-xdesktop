@@ -1,0 +1,54 @@
+---
+- name: create download directory
+  file:
+    state: directory
+    mode: 'u=rwx,go=rx'
+    dest: '{{ xdesktop_download_dir }}'
+
+- name: download Nerd Font
+  get_url:
+    url: '{{ xdesktop_nerd_font_redis_url }}'
+    checksum: 'sha256:{{ xdesktop_nerd_font_redis_sha256sum }}'
+    dest: '{{ xdesktop_download_dir }}/{{ xdesktop_nerd_font_local_filename }}'
+    force: no
+    mode: 'u=rw,go=r'
+
+- name: create font directory
+  become: yes
+  file:
+    state: directory
+    mode: 'u=rwx,g=rwxs,o=rx'
+    dest: '{{ xdesktop_font_install_directory }}'
+
+- name: install Nerd Font
+  become: yes
+  unarchive:
+    src: '{{ xdesktop_download_dir }}/{{ xdesktop_nerd_font_local_filename }}'
+    remote_src: yes
+    dest: '{{ xdesktop_font_install_directory }}'
+    include: '{{ xdesktop_nerd_font_install_files }}'
+    mode: 'ug=rw,o=r'
+    owner: root
+    group: staff
+  notify:
+    - update font-cache
+
+- name: write monospace font config
+  become: yes
+  template:
+    src: monospace_font.gschema.override.j2
+    dest: '{{ xdesktop_glib_schemas_directory }}/20_ansible_monospace_font.gschema.override'
+    owner: root
+    group: root
+    mode: 'u=rw,go=r'
+  register: monospace_font_config
+
+- name: apply glib schemas changes
+  tags:
+    # Suppress warning: [ANSIBLE0016] Tasks that run when changed should likely be handlers
+    # Since the command is invoked with an argument that is role specific it
+    # doesn't make sense to use a handler, which are global to the playbook.
+    - skip_ansible_lint
+  become: yes
+  command: '/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}'
+  when: monospace_font_config.changed
