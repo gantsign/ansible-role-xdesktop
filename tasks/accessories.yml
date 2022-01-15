@@ -3,6 +3,8 @@
   become: yes
   apt:
     name:
+      # Terminal emulator
+      - terminator
       # Text editor
       - gedit
       # Seahorse SSH agent GUI
