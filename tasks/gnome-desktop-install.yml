@@ -8,5 +8,11 @@
       - file-roller
       # TaskManager equivalent
       - gnome-system-monitor
+      # Install theme
+      - yaru-theme-gtk
+      - yaru-theme-sound
+      - yaru-theme-gnome-shell
+      - yaru-theme-icon
+      - yaru-theme-unity
     state: present
     install_recommends: no
