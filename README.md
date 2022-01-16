@@ -9,7 +9,7 @@ Role to install and configure the Gnome desktop to my preference.
 Requirements
 ------------
 
-* Ansible >= 2.8
+* Ansible >= 5.2
 
 * Linux Distribution
 
