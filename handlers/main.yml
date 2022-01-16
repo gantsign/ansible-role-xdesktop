@@ -1,2 +1,8 @@
 ---
-# handlers file for xdesktop
+- name: 'xdesktop: apply glib schemas changes'
+  become: yes
+  command: '/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}'
+
+- name: update font-cache
+  become: yes
+  command: fc-cache -fv

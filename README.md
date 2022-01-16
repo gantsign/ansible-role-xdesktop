@@ -26,6 +26,15 @@ are shown below):
 ```yaml
 # The position of the dockbar
 xdesktop_dock_position: LEFT
+
+# Nerd Font version number
+xdesktop_nerd_font_version: '2.1.0'
+
+# The SHA256 of the Nerd Font redistributable package
+xdesktop_nerd_font_redis_sha256sum: '842013fa44b6896d4eb91635a81ef75244d78d7f61ff866c9dfd3315a67788cd'
+
+# Directory to store files downloaded
+xdesktop_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
 ```
 
 Example Playbook

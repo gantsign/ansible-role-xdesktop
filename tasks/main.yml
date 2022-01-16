@@ -2,3 +2,5 @@
 - import_tasks: gnome-desktop.yml
 
 - import_tasks: accessories.yml
+
+- import_tasks: nerd-font.yml
