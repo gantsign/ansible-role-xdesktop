@@ -1,4 +1,9 @@
 ---
+- name: Install xz-utils
+  become: true
+  ansible.builtin.apt:
+    name: xz-utils
+
 - name: Create download directory
   ansible.builtin.file:
     state: directory
