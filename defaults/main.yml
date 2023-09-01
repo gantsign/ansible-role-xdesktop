@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 # The position of the dockbar
 xdesktop_dock_position: LEFT
