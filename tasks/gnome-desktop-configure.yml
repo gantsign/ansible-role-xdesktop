@@ -1,16 +1,16 @@
 ---
-- name: write xorg screensaver config
-  become: yes
-  template:
+- name: Write xorg screensaver config
+  become: true
+  ansible.builtin.template:
     src: screensaver.conf.j2
     dest: '/usr/share/X11/xorg.conf.d/60-ansible-screensaver.conf'
     owner: root
     group: root
     mode: 'u=rw,go=r'
 
-- name: write gnome screensaver config
-  become: yes
-  template:
+- name: Write gnome screensaver config
+  become: true
+  ansible.builtin.template:
     src: screensaver.gschema.override.j2
     dest: '{{ xdesktop_glib_schemas_directory }}/20_ansible_screensaver.gschema.override'
     owner: root
@@ -18,9 +18,9 @@
     mode: 'u=rw,go=r'
   register: screensaver_config
 
-- name: write gnome lock screen config
-  become: yes
-  template:
+- name: Write gnome lock screen config
+  become: true
+  ansible.builtin.template:
     src: lockscreen.gschema.override.j2
     dest: '{{ xdesktop_glib_schemas_directory }}/20_ansible_lockscreen.gschema.override'
     owner: root
@@ -28,17 +28,17 @@
     mode: 'u=rw,go=r'
   register: lockscreen_config
 
-- name: assert dock position valid
+- name: Assert dock position valid
   assert:
     that:
       - "xdesktop_dock_position in ('LEFT', 'RIGHT', 'BOTTOM')"
 
-- name: write gnome dock config
-  become: yes
-  template:
+- name: Write gnome dock config
+  become: true
+  ansible.builtin.template:
     src: dock.gschema.override.j2
     dest: '{{ xdesktop_glib_schemas_directory }}/20_ansible_dock.gschema.override'
     owner: root
     group: root
     mode: 'u=rw,go=r'
-  notify: 'xdesktop: apply glib schemas changes'
+  notify: 'X-Desktop: apply glib schemas changes'

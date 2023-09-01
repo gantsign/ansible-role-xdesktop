@@ -1,7 +1,7 @@
 ---
-- name: install ubuntu-desktop
-  become: yes
-  apt:
+- name: Install ubuntu-desktop
+  become: true
+  ansible.builtin.apt:
     name:
       - ubuntu-desktop
       # Archive manager
@@ -15,4 +15,4 @@
       - yaru-theme-icon
       - yaru-theme-unity
     state: present
-    install_recommends: no
+    install_recommends: false

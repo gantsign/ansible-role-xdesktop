@@ -1,7 +1,7 @@
 ---
-- name: install accessory apps and fonts
-  become: yes
-  apt:
+- name: Install accessory apps and fonts
+  become: true
+  ansible.builtin.apt:
     name:
       # Terminal emulator
       - terminator
