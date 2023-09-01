@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 - name: Write xorg screensaver config
   become: true
