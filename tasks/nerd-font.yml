@@ -1,43 +1,43 @@
 ---
-- name: create download directory
-  file:
+- name: Create download directory
+  ansible.builtin.file:
     state: directory
     mode: 'u=rwx,go=rx'
     dest: '{{ xdesktop_download_dir }}'
 
-- name: download Nerd Font
-  get_url:
+- name: Download Nerd Font
+  ansible.builtin.get_url:
     url: '{{ xdesktop_nerd_font_redis_url }}'
     checksum: 'sha256:{{ xdesktop_nerd_font_redis_sha256sum }}'
     dest: '{{ xdesktop_download_dir }}/{{ xdesktop_nerd_font_local_filename }}'
-    force: no
+    force: false
     mode: 'u=rw,go=r'
 
-- name: create font directory
-  become: yes
-  file:
+- name: Create font directory
+  become: true
+  ansible.builtin.file:
     state: directory
     mode: 'u=rwx,g=rwxs,o=rx'
     dest: '{{ xdesktop_font_install_directory }}'
 
-- name: install Nerd Font
-  become: yes
-  unarchive:
+- name: Install Nerd Font
+  become: true
+  ansible.builtin.unarchive:
     src: '{{ xdesktop_download_dir }}/{{ xdesktop_nerd_font_local_filename }}'
-    remote_src: yes
+    remote_src: true
     dest: '{{ xdesktop_font_install_directory }}'
     include: '{{ xdesktop_nerd_font_install_files }}'
     mode: 'ug=rw,o=r'
     owner: root
     group: staff
-  notify: update font-cache
+  notify: Update font-cache
 
-- name: write monospace font config
-  become: yes
-  template:
+- name: Write monospace font config
+  become: true
+  ansible.builtin.template:
     src: monospace_font.gschema.override.j2
     dest: '{{ xdesktop_glib_schemas_directory }}/20_ansible_monospace_font.gschema.override'
     owner: root
     group: root
     mode: 'u=rw,go=r'
-  notify: 'xdesktop: apply glib schemas changes'
+  notify: 'X-Desktop: apply glib schemas changes'

@@ -1,8 +1,8 @@
 ---
-- name: 'xdesktop: apply glib schemas changes'
-  become: yes
-  command: '/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}'
+- name: 'X-Desktop: apply glib schemas changes'
+  become: true
+  ansible.builtin.command: '/usr/bin/glib-compile-schemas {{ xdesktop_glib_schemas_directory }}'
 
-- name: update font-cache
-  become: yes
-  command: fc-cache -fv
+- name: Update font-cache
+  become: true
+  ansible.builtin.command: fc-cache -fv
