@@ -3,10 +3,10 @@
 xdesktop_dock_position: LEFT
 
 # Nerd Font version number
-xdesktop_nerd_font_version: '2.1.0'
+xdesktop_nerd_font_version: '3.0.2'
 
 # The SHA256 of the Nerd Font redistributable package
-xdesktop_nerd_font_redis_sha256sum: '842013fa44b6896d4eb91635a81ef75244d78d7f61ff866c9dfd3315a67788cd'
+xdesktop_nerd_font_redis_sha256sum: '4991258b7c97071238a7459f0d3bf81a893ae7b0c849dbc47ad52833a8db7f55'
 
 # Directory to store files downloaded
 xdesktop_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
