@@ -4,11 +4,11 @@ galaxy_info:
   description: Role for installing and configuring the Gnome desktop to my preference.
   company: GantSign Ltd.
   license: MIT
-  min_ansible_version: 5.2
+  min_ansible_version: '2.12'
   platforms:
     - name: Ubuntu
       versions:
-        - focal
+        - jammy
   galaxy_tags:
     - gnome
 dependencies: []
