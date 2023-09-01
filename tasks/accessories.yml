@@ -17,6 +17,8 @@
       - meld
       # Git-GUI graphical Git client
       - git-gui
+      # Git integration with Nautilus file browser
+      - rabbitvcs-nautilus
       # Emoji font
       - fonts-noto-color-emoji
       # Monospaced font with programming ligatures
