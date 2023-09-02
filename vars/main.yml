@@ -10,7 +10,7 @@ xdesktop_font_install_directory: /usr/local/share/fonts
 xdesktop_nerd_font_mirror: 'https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ xdesktop_nerd_font_version }}'
 
 # Name of the default monospace font name
-xdesktop_monospace_font_name: 'JetBrainsMono Nerd Font Mono 12'
+xdesktop_monospace_font_name: 'JetBrainsMono Nerd Font 12'
 
 # File name of the Nerd Font redistributable package
 xdesktop_nerd_font_redis_filename: 'JetBrainsMono.tar.xz'
